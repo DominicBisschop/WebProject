@@ -1,0 +1,25 @@
+Stap 1:
+git status
+
+--> Zo zie je welke bewerkingen je allemaal hebt gemaakt
+
+Stap 2:
+git add -A
+
+--> Alle bestanden toevoegen aan de commit
+
+Stap 3:
+git commit -m "HIER KOMT DE NAAM VAN JE COMMIT"
+
+--> Commit aanmaken en een naam geven
+
+Stap 4:
+git pull
+
+--> Eerst alle wijzigingen van andere mensen ontvangen zodat 
+	Git deze bestanden kan samenvoegen met jou bestanden
+	
+Stap 5:
+git push
+
+--> Commit pushen naar de andere collega's
