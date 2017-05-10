@@ -1,0 +1,42 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>WP5</title>
+    <style>
+        #div1, #div2 {
+            float: left;
+            width: 60px;
+            height: 100px;
+            margin: 10px;
+            padding: 10px;
+            border: 1px solid black;
+        }
+    </style>
+    <script>
+        function drag(ev) {
+            ev.dataTransfer.setData("text", ev.target.id);
+        }
+
+        function allowDrop(ev) {
+            ev.preventDefault();
+        }
+
+        function drop(ev) {
+            ev.preventDefault();
+            var data = ev.dataTransfer.getData("text");
+            ev.target.appendChild(document.getElementById(data));
+        }
+    </script>
+</head>
+<body>
+
+<h2>Drag and Drop</h2>
+
+<div id="div1" ondrop="drop(event)" ondragover="allowDrop(event)">
+    <img src="rampage.jpg" draggable="true" ondragstart="drag(event)" id="drag1" width="58" height="95">
+</div>
+
+<div id="div2" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+
+</body>
+</html>
