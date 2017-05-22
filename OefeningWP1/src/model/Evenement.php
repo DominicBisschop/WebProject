@@ -16,7 +16,7 @@ class Evenement
     /**
      * @return mixed
      */
-    public function getNaam()
+    public function getName()
     {
         return $this->naam;
     }
@@ -24,7 +24,7 @@ class Evenement
     /**
      * @param mixed $naam
      */
-    public function setNaam($naam)
+    public function setName($naam)
     {
         $this->naam = $naam;
     }

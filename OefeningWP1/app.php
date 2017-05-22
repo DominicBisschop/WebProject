@@ -7,11 +7,11 @@ use \controller\EvenementController;
 
 $user = 'root';
 $password = '';
-$database = 'persondatabase';
+$database = 'monkeybusiness';
 $pdo = null;
 
 try {
-    $pdo = new PDO("mysql:host=localhost;dbname=$database",
+    $pdo = new PDO("mysql:host=localhost:8081;dbname=$database",
                    $user, $password);
     $pdo->setAttribute(PDO::ATTR_ERRMODE,
                        PDO::ERRMODE_EXCEPTION);
