@@ -1,0 +1,47 @@
+body {
+    background: url(../img/home.jpg) no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    font-family: 'Arial';
+    color: #000000;
+}
+
+#table th{
+    color: #ffffff;
+    text-align: center;
+    border-color: black;
+    border-width: 5px;
+    background: #878787;
+    height: 50px;
+}
+
+#table tr{
+    text-align: center;
+}
+
+#logo {
+    width: 200px;
+    float: left;
+    display: inline-block;
+    margin-top: -10px;
+    margin-right: 10px;
+    position: relative;
+    z-index: 1;
+
+}
+
+.btn {
+    display: inline-block;
+    height: 50px;
+    margin: 5px;
+    padding: 16px 20px 0 20px;
+    background: #878787;
+    font-size: 16px;
+    font-weight: 300;
+    line-height: 16px;
+    color: #fff;
+    -moz-border-radius: 4px; -webkit-border-radius: 4px; border-radius: 4px;
+}
+.btn:hover, .btn:focus, .btn:active { outline: 0; opacity: 0.6; color: #cecece; }
