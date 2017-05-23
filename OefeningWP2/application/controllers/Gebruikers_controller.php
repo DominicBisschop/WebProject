@@ -21,8 +21,8 @@ class Gebruikers_controller extends CI_Controller {
         $this->form_validation->set_error_delimiters('<div class="error">', '</div>');
 
         //validatie van de invulvelden
-        $this->form_validation->set_rules('dlast_name','Achternaam', 'required|min_length[2]|max_length[50]');
-        $this->form_validation->set_rules('dfirst_name','Voornaam', 'required|min_length[2]|max_length[50]');
+        $this->form_validation->set_rules('dlast_name','Achternaam', 'required|min_length[2]|max_length[30]');
+        $this->form_validation->set_rules('dfirst_name','Voornaam', 'required|min_length[2]|max_length[30]');
         $this->form_validation->set_rules('demail', 'Email', 'required|valid_email');
         $this->form_validation->set_rules('dpassword', 'Paswoord', 'trim|required|md5');;
 

@@ -1,8 +1,8 @@
 <?php
 
 /**
-bronvermelding: Project Andy Leenders Web Advanced Jaar 2015-2016
-stackoverflow.com*/
+ * bronvermelding: Project Andy Leenders Web Advanced Jaar 2015-2016
+ * stackoverflow.com*/
 
 defined('BASEPATH') OR exit('No direct script access allowed');
 ?><!DOCTYPE html>
@@ -11,13 +11,21 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <title>Registratiescherm</title>
     <script type="text/javascript"></script>
     <style>
-        table,td {border: 1px solid black; background-color: lightblue;}
-        th {text: bold; border: 1px solid black; background-color: cornflowerblue;}
+        table, td {
+            border: 1px solid black;
+            background-color: lightblue;
+        }
+
+        th {
+            text: bold;
+            border: 1px solid black;
+            background-color: cornflowerblue;
+        }
     </style>
 </head>
 <body>
 <div>
-    <?php echo form_open('Gebruikers_controller');?>
+    <?php echo form_open('Gebruikers_controller'); ?>
     <label>Achternaam</label>
     <?php
     $attributes = array('name' => 'dlast_name', 'id' => 'dlast_name', 'placeholder' => 'Achternaam');
@@ -53,16 +61,16 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <th>E-mail</th>
         <th>Wachtwoord</th>
     </tr>
-    <?php foreach($this->data as $row){
+    <?php foreach ($this->data as $row) {
         ?>
         <tr>
-            <td><?= htmlentities($row->ACCOUNT_ID, ENT_QUOTES, 'UTF-8')?></td>
-            <td><?= htmlentities($row->FIRST_NAME, ENT_QUOTES, 'UTF-8')?> <?= htmlentities($row->LAST_NAME, ENT_QUOTES, 'UTF-8')?></td>
-            <td><?= htmlentities($row->EMAIL, ENT_QUOTES, 'UTF-8')?></td>
-            <td><?= htmlentities($row->PASSWORD, ENT_QUOTES, 'UTF-8')?></td>
+            <td><?= htmlentities($row->ACCOUNT_ID, ENT_QUOTES, 'UTF-8') ?></td>
+            <td><?= htmlentities($row->FIRST_NAME, ENT_QUOTES, 'UTF-8') ?> <?= htmlentities($row->LAST_NAME, ENT_QUOTES, 'UTF-8') ?></td>
+            <td><?= htmlentities($row->EMAIL, ENT_QUOTES, 'UTF-8') ?></td>
+            <td><?= htmlentities($row->PASSWORD, ENT_QUOTES, 'UTF-8') ?></td>
         </tr>
         <?php
-    }?>
+    } ?>
 
     <?php echo form_close(); ?><br>
     </tbody>

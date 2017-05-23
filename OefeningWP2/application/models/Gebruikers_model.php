@@ -22,6 +22,6 @@ Class Gebruikers_model extends CI_Model
         $this->db->from('Gebruikers');
         $query = $this->db->get();
         return $result = $query->result();
-        $this->load->view('Gebruiker_view',$result);
+       // $this->load->view('Gebruiker_view',$result);
     }
 }
