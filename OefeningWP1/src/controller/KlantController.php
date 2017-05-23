@@ -3,22 +3,22 @@
 namespace controller;
 
 use model\KlantRepository;
-use view\View;
+use view\KlantView;
 
 class KlantController
 {
     private $klantRepository;
     private $view;
 
-    public function __construct(KlantRepository $klantRepository, View $view)
+    public function __construct(KlantRepository $klantRepository, KlantView $klantView)
     {
         $this->klantRepository = $klantRepository;
-        $this->view = $view;
+        $this->view = $klantView;
     }
 
     public function handleFindPersonById($id = null)
     {
         $klant = $this->klantRepository->findCustomerById($id);
-        $this->view->show(['klant' => $klant]);
+        $this->view->showdata(['klant' => $klant]);
     }
 }

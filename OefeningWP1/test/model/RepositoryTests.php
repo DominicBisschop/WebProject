@@ -1,7 +1,8 @@
 <?php
 use \model\EvenementModel;
 use \model\PDOEvenementRepository;
-require 'MonkeyBusiness/vendor/autoload.php';
+
+require '../../src/vendor/autoload.php';
 
 class PDORepositoryTest extends PHPUnit\Framework\TestCase
 {
@@ -17,37 +18,37 @@ class PDORepositoryTest extends PHPUnit\Framework\TestCase
     }
 
     public function testFindEventById_idExists_EventObject()
-{
-    $evenement = new EvenementModel(1, 'welcome home', '2017-05-17', '2017-05-17', 1, 'niets', 5000.0, 'niets');
-    $this->mockPDOStatement->expects($this->atLeastOnce())
-        ->method('bindParam');
-    $this->mockPDOStatement->expects($this->atLeastOnce())
-        ->method('execute');
-    $this->mockPDOStatement->expects($this->atLeastOnce())
-        ->method('fetchAll')
-        ->will($this->returnValue(
-            [
-                [ 'id' => $evenement->getId(),
-                    'naam' => $evenement->getNaam(),
-                    'begindatum' => $evenement->getBeginDatum(),
-                    'einddatum' => $evenement->getEindDatum(),
-                    'klantnummer' => $evenement->getKlantnummer(),
-                    'bezetting' => $evenement->getBezetting(),
-                    'kost' => $evenement->getKost(),
-                    'materialen' => $evenement->getMaterialen()
-                ]
-            ]));
-    $this->mockPDO->expects($this->atLeastOnce())
-        ->method('prepare')
-        ->will($this->returnValue($this->mockPDOStatement));
-    $pdoRepository = new PDOEvenementRepository($this->mockPDO);
-    $actualEvenement =
-        $pdoRepository->findEventById($evenement->getId());
+    {
+        $evenement = new EvenementModel(1, 'welcome home', '2017-05-17', '2017-05-17', 1, 'niets', 5000.0, 'niets');
+        $this->mockPDOStatement->expects($this->atLeastOnce())
+            ->method('bindParam');
+        $this->mockPDOStatement->expects($this->atLeastOnce())
+            ->method('execute');
+        $this->mockPDOStatement->expects($this->atLeastOnce())
+            ->method('fetchAll')
+            ->will($this->returnValue(
+                [
+                    ['id' => $evenement->getId(),
+                        'naam' => $evenement->getNaam(),
+                        'begindatum' => $evenement->getBeginDatum(),
+                        'einddatum' => $evenement->getEindDatum(),
+                        'klantnummer' => $evenement->getKlantnummer(),
+                        'bezetting' => $evenement->getBezetting(),
+                        'kost' => $evenement->getKost(),
+                        'materialen' => $evenement->getMaterialen()
+                    ]
+                ]));
+        $this->mockPDO->expects($this->atLeastOnce())
+            ->method('prepare')
+            ->will($this->returnValue($this->mockPDOStatement));
+        $pdoRepository = new PDOEvenementRepository($this->mockPDO);
+        $actualEvenement =
+            $pdoRepository->findEventById($evenement->getId());
 
-    //var_dump($evenement);
-    //var_dump($actualEvenement);
+        //var_dump($evenement);
+        //var_dump($actualEvenement);
 
-    $this->assertEquals($evenement, $actualEvenement);
+        $this->assertEquals($evenement, $actualEvenement);
     }
 
     public function testFindEventById_idDoesNotExist_Null()
@@ -66,6 +67,7 @@ class PDORepositoryTest extends PHPUnit\Framework\TestCase
         $actualEvenement = $pdoRepository->findEventById(24);
         $this->assertEquals($actualEvenement, '');
     }
+
     public function testFindEventById_exeptionThrownFromPDO_Null()
     {
         $this->mockPDOStatement->expects($this->atLeastOnce())
@@ -90,7 +92,7 @@ class PDORepositoryTest extends PHPUnit\Framework\TestCase
             ->method('fetchAll')
             ->will($this->returnValue(
                 [
-                    [ 'id' => $evenement1->getId(),
+                    ['id' => $evenement1->getId(),
                         'naam' => $evenement1->getNaam(),
                         'begindatum' => $evenement1->getBeginDatum(),
                         'einddatum' => $evenement1->getEindDatum(),
@@ -99,7 +101,7 @@ class PDORepositoryTest extends PHPUnit\Framework\TestCase
                         'kost' => $evenement1->getKost(),
                         'materialen' => $evenement1->getMaterialen()
                     ],
-                    [ 'id' => $evenement2->getId(),
+                    ['id' => $evenement2->getId(),
                         'naam' => $evenement2->getNaam(),
                         'begindatum' => $evenement2->getBeginDatum(),
                         'einddatum' => $evenement2->getEindDatum(),
@@ -159,7 +161,7 @@ class PDORepositoryTest extends PHPUnit\Framework\TestCase
             ->method('fetchAll')
             ->will($this->returnValue(
                 [
-                    [ 'id' => $evenement->getId(),
+                    ['id' => $evenement->getId(),
                         'naam' => $evenement->getNaam(),
                         'begindatum' => $evenement->getBeginDatum(),
                         'einddatum' => $evenement->getEindDatum(),
@@ -224,7 +226,7 @@ class PDORepositoryTest extends PHPUnit\Framework\TestCase
             ->method('fetchAll')
             ->will($this->returnValue(
                 [
-                    [ 'id' => $evenement->getId(),
+                    ['id' => $evenement->getId(),
                         'naam' => $evenement->getNaam(),
                         'begindatum' => $evenement->getBeginDatum(),
                         'einddatum' => $evenement->getEindDatum(),
@@ -263,6 +265,7 @@ class PDORepositoryTest extends PHPUnit\Framework\TestCase
         $actualEvenement = $pdoRepository->findEventByDate('2017-05-17', '2017-05-17');
         $this->assertEquals($actualEvenement, '');
     }
+
     public function testFindEventByDates_exeptionThrownFromPDO_Null()
     {
         $this->mockPDOStatement->expects($this->atLeastOnce())
@@ -288,7 +291,7 @@ class PDORepositoryTest extends PHPUnit\Framework\TestCase
             ->method('fetchAll')
             ->will($this->returnValue(
                 [
-                    [ 'id' => $evenement->getId(),
+                    ['id' => $evenement->getId(),
                         'naam' => $evenement->getNaam(),
                         'begindatum' => $evenement->getBeginDatum(),
                         'einddatum' => $evenement->getEindDatum(),
@@ -303,7 +306,7 @@ class PDORepositoryTest extends PHPUnit\Framework\TestCase
             ->will($this->returnValue($this->mockPDOStatement));
         $pdoRepository = new PDOEvenementRepository($this->mockPDO);
         $actualEvenement =
-            $pdoRepository->findEventByCustomerAndDate($evenement->getKlantnummer() ,$evenement->getBeginDatum(), $evenement->getEindDatum());
+            $pdoRepository->findEventByCustomerAndDate($evenement->getKlantnummer(), $evenement->getBeginDatum(), $evenement->getEindDatum());
 
         //var_dump($evenement);
         //var_dump($actualEvenement);
@@ -324,10 +327,11 @@ class PDORepositoryTest extends PHPUnit\Framework\TestCase
             ->method('prepare')
             ->will($this->returnValue($this->mockPDOStatement));
         $pdoRepository = new PDOEvenementRepository($this->mockPDO);
-        $actualEvenement = $pdoRepository->findEventByCustomerAndDate(1 ,'2017-05-17', '2017-05-17');
+        $actualEvenement = $pdoRepository->findEventByCustomerAndDate(1, '2017-05-17', '2017-05-17');
         $this->assertEquals($actualEvenement, '');
     }
-    public function  testFindEventByCustomerAndDates_exeptionThrownFromPDO_Null()
+
+    public function testFindEventByCustomerAndDates_exeptionThrownFromPDO_Null()
     {
         $this->mockPDOStatement->expects($this->atLeastOnce())
             ->method('bindParam')->will(
@@ -336,7 +340,7 @@ class PDORepositoryTest extends PHPUnit\Framework\TestCase
             ->method('prepare')
             ->will($this->returnValue($this->mockPDOStatement));
         $pdoRepository = new PDOEvenementRepository($this->mockPDO);
-        $actualEvenement = $pdoRepository->findEventByCustomerAndDate(1 ,'2017-05-17', '2017-05-17');
+        $actualEvenement = $pdoRepository->findEventByCustomerAndDate(1, '2017-05-17', '2017-05-17');
         $this->assertEquals($actualEvenement, '');
     }
 

@@ -1,6 +1,6 @@
 <?php
 
-use \model\Evenement;
+use \model\EvenementModel;
 use \controller\EvenementController;
 
 class EvenementControllerTest extends PHPUnit_Framework_TestCase
@@ -21,7 +21,7 @@ class EvenementControllerTest extends PHPUnit_Framework_TestCase
 
     public function testHandleEvenementById_evenementFound_stringWithIdName()
     {
-        $evenement = new Evenement(1, 'testevenement');
+        $evenement = new EvenementModel(1, 'testevenement');
         $this->mockEvenementRepository->expects($this->atLeastOnce())
             ->method('findEvenementById')
             ->will($this->returnValue($evenement));
