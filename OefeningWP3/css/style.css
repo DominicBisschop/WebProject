@@ -8,7 +8,7 @@ body {
     color: #000000;
 }
 
-#table th{
+.table th{
     color: #ffffff;
     text-align: center;
     border-color: black;
@@ -17,11 +17,11 @@ body {
     height: 50px;
 }
 
-#table tr{
+.table tr{
     text-align: center;
 }
 
-#logo {
+.logo {
     width: 200px;
     float: left;
     display: inline-block;
