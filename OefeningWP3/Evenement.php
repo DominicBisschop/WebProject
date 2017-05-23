@@ -6,7 +6,7 @@
 
     <body>
     <img src="img/monkey_logo.png" width="100px" id="logo">
-    <h1>Monkey Bussiness</h1>
+    <h1>Monkey Business</h1>
             <br><br><br>
             <h2>Evenementen</h2>
             <button type="button" class="btn">Aanmaken</button>
