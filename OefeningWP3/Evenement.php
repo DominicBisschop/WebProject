@@ -29,7 +29,7 @@
     var container = document.getElementById("table");
     var getID = document.getElementById("getID").value;
     var delID = document.getElementById("delID").value;
-    var url = "http://192.168.217.134/~user/monkey/api/events/";//todo
+    var url = "";//todo
 
     document.getElementById("searchButton").addEventListener("click",myFunction);
     function myFunction(){
